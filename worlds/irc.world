@@ -35,7 +35,7 @@
     <include>
       <uri>model://robot</uri>
       <name>robot_model</name>
-      <pose>-1 0.7 0.25 0 0 0</pose>
+      <pose>-1 0.65 0.28 0.043 0.15 -1.5</pose>
     </include>
 
     <model name="ball_1">

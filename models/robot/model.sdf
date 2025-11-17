@@ -6,6 +6,18 @@
       name="ignition::gazebo::systems::Sensors">
       <render_engine>ogre2</render_engine>
     </plugin>
+    <!--
+    <plugin
+        filename="libignition-gazebo-diff-drive-system.so"
+        name="ignition::gazebo::systems::DiffDrive">
+        <left_joint>left_wheel_joint</left_joint>
+        <right_joint>right_wheel_joint</right_joint>
+        <wheel_separation>1.2</wheel_separation>
+        <wheel_radius>0.4</wheel_radius>
+        <odom_publish_frequency>1</odom_publish_frequency>
+        <topic>cmd_vel</topic>
+    </plugin> -->
+
     <link name="base_link">
       <inertial>
         <mass>1.0</mass>
@@ -23,7 +35,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://robot/robot.stl</uri>
+            <uri>model://robot/robo.stl</uri>
           </mesh>
         </geometry>
         <surface>
@@ -40,11 +52,15 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://robot/robot.dae</uri>
+            <uri>model://robot/robo.dae</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
+
+    <!--link name="right_wheel_link"-->
+    
+    <!--link name="left_wheel_link"-->
 
     <link name="camera_link">
       <pose relative_to='__model__'>0 0.15 0.325 0 0.3 1.6</pose><!--車輪間同士の距離がx軸、奥ゆきがy軸、ピッチがカメラをどのくらい下に向けるかを表している   -->

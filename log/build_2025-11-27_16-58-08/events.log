@@ -1,0 +1,197 @@
+[0.000000] (-) TimerEvent: {}
+[0.000470] (irc_simulation) JobQueued: {'identifier': 'irc_simulation', 'dependencies': OrderedDict()}
+[0.000796] (irc_simulation) JobStarted: {'identifier': 'irc_simulation'}
+[0.006081] (irc_simulation) JobProgress: {'identifier': 'irc_simulation', 'progress': 'cmake'}
+[0.006540] (irc_simulation) Command: {'cmd': ['/usr/bin/cmake', '/home/kouki/ros2_ws/src/irc_simulation', '-DCMAKE_INSTALL_PREFIX=/home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation'], 'cwd': '/home/kouki/ros2_ws/src/irc_simulation/build/irc_simulation', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'kouki'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/kouki'), ('OLDPWD', '/home/kouki/ros2_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1277'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kouki/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kouki'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'kouki'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '1'), ('PATH', '/opt/ros/humble/bin:/home/kouki/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/kouki-desktop:@/tmp/.ICE-unix/1240,unix/kouki-desktop:/tmp/.ICE-unix/1240'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/a0aa79d7_8d31_45b0_adae_57f1a36d2431'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'ja_JP.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.N0BTG3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.104'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/kouki/ros2_ws/install/intelligent_robot_contest:/home/kouki/ros2_ws/install/simulation_irc:/home/kouki/ros2_ws/install/mypkg:/home/kouki/ros2_ws/install/irc_simulation:/home/kouki/ros2_ws/install/ball_detector_pkg:/home/kouki/ros2_ws/install/IRC_ros2:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kouki/ros2_ws/src/irc_simulation/build/irc_simulation'), ('TURTLEBOT3_MODEL', 'waffle_pi'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kouki/ros2_ws/install/intelligent_robot_contest/lib/python3.10/site-packages:/home/kouki/ros2_ws/install/mypkg/lib/python3.10/site-packages:/home/kouki/ros2_ws/install/ball_detector_pkg/lib/python3.10/site-packages:/home/kouki/ros2_ws/install/IRC_ros2/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/kouki/ros2_ws/install/simulation_irc:/home/kouki/ros2_ws/install/irc_simulation:/home/kouki/ros2_ws/install/intelligent_robot_contest:/home/kouki/ros2_ws/install/mypkg:/home/kouki/ros2_ws/install/ball_detector_pkg:/home/kouki/ros2_ws/install/IRC_ros2:/opt/ros/humble')]), 'shell': False}
+[0.099557] (-) TimerEvent: {}
+[0.143534] (irc_simulation) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.199676] (-) TimerEvent: {}
+[0.213885] (irc_simulation) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.221305] (irc_simulation) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.299933] (-) TimerEvent: {}
+[0.305038] (irc_simulation) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.314475] (irc_simulation) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.315465] (irc_simulation) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.316397] (irc_simulation) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.320775] (irc_simulation) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.400149] (-) TimerEvent: {}
+[0.408538] (irc_simulation) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.417162] (irc_simulation) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.417538] (irc_simulation) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.418177] (irc_simulation) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.424327] (irc_simulation) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.500302] (-) TimerEvent: {}
+[0.554004] (irc_simulation) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.600381] (-) TimerEvent: {}
+[0.623893] (irc_simulation) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.654745] (irc_simulation) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.658449] (irc_simulation) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.664248] (irc_simulation) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.673126] (irc_simulation) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.685864] (irc_simulation) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.700554] (-) TimerEvent: {}
+[0.716737] (irc_simulation) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.718694] (irc_simulation) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.800729] (-) TimerEvent: {}
+[0.806617] (irc_simulation) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.839182] (irc_simulation) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.875320] (irc_simulation) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.882383] (irc_simulation) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.900974] (-) TimerEvent: {}
+[0.975694] (irc_simulation) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.976219] (irc_simulation) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[1.001227] (-) TimerEvent: {}
+[1.055453] (irc_simulation) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[1.056276] (irc_simulation) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[1.095023] (irc_simulation) StdoutLine: {'line': b'-- Found ros_gz_sim: 0.244.20 (/opt/ros/humble/share/ros_gz_sim/cmake)\n'}
+[1.097143] (irc_simulation) StdoutLine: {'line': b'-- Found ros_gz_bridge: 0.244.20 (/opt/ros/humble/share/ros_gz_bridge/cmake)\n'}
+[1.101378] (-) TimerEvent: {}
+[1.142207] (irc_simulation) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") \n'}
+[1.201634] (-) TimerEvent: {}
+[1.254947] (irc_simulation) StdoutLine: {'line': b'-- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") \n'}
+[1.301765] (-) TimerEvent: {}
+[1.402234] (-) TimerEvent: {}
+[1.502827] (-) TimerEvent: {}
+[1.564498] (irc_simulation) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[1.603067] (-) TimerEvent: {}
+[1.625670] (irc_simulation) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.625866] (irc_simulation) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[1.625957] (irc_simulation) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[1.627110] (irc_simulation) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[1.629339] (irc_simulation) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.630557] (irc_simulation) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[1.637369] (irc_simulation) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[1.637566] (irc_simulation) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[1.638541] (irc_simulation) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.639386] (irc_simulation) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.645611] (irc_simulation) StdoutLine: {'line': b'-- Generating done\n'}
+[1.648455] (irc_simulation) StdoutLine: {'line': b'-- Build files have been written to: /home/kouki/ros2_ws/src/irc_simulation/build/irc_simulation\n'}
+[1.657499] (irc_simulation) CommandEnded: {'returncode': 0}
+[1.659913] (irc_simulation) JobProgress: {'identifier': 'irc_simulation', 'progress': 'build'}
+[1.660079] (irc_simulation) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/kouki/ros2_ws/src/irc_simulation/build/irc_simulation', '--', '-j16', '-l16'], 'cwd': '/home/kouki/ros2_ws/src/irc_simulation/build/irc_simulation', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'kouki'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/kouki'), ('OLDPWD', '/home/kouki/ros2_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1277'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kouki/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kouki'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'kouki'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '1'), ('PATH', '/opt/ros/humble/bin:/home/kouki/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/kouki-desktop:@/tmp/.ICE-unix/1240,unix/kouki-desktop:/tmp/.ICE-unix/1240'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/a0aa79d7_8d31_45b0_adae_57f1a36d2431'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'ja_JP.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.N0BTG3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.104'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/kouki/ros2_ws/install/intelligent_robot_contest:/home/kouki/ros2_ws/install/simulation_irc:/home/kouki/ros2_ws/install/mypkg:/home/kouki/ros2_ws/install/irc_simulation:/home/kouki/ros2_ws/install/ball_detector_pkg:/home/kouki/ros2_ws/install/IRC_ros2:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kouki/ros2_ws/src/irc_simulation/build/irc_simulation'), ('TURTLEBOT3_MODEL', 'waffle_pi'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kouki/ros2_ws/install/intelligent_robot_contest/lib/python3.10/site-packages:/home/kouki/ros2_ws/install/mypkg/lib/python3.10/site-packages:/home/kouki/ros2_ws/install/ball_detector_pkg/lib/python3.10/site-packages:/home/kouki/ros2_ws/install/IRC_ros2/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/kouki/ros2_ws/install/simulation_irc:/home/kouki/ros2_ws/install/irc_simulation:/home/kouki/ros2_ws/install/intelligent_robot_contest:/home/kouki/ros2_ws/install/mypkg:/home/kouki/ros2_ws/install/ball_detector_pkg:/home/kouki/ros2_ws/install/IRC_ros2:/opt/ros/humble')]), 'shell': False}
+[1.703255] (-) TimerEvent: {}
+[1.723334] (irc_simulation) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/ball_chaser.dir/src/ball_chaser.cpp.o\x1b[0m\n'}
+[1.803479] (-) TimerEvent: {}
+[1.903895] (-) TimerEvent: {}
+[2.004348] (-) TimerEvent: {}
+[2.104764] (-) TimerEvent: {}
+[2.205169] (-) TimerEvent: {}
+[2.305580] (-) TimerEvent: {}
+[2.406010] (-) TimerEvent: {}
+[2.506452] (-) TimerEvent: {}
+[2.606894] (-) TimerEvent: {}
+[2.707343] (-) TimerEvent: {}
+[2.807766] (-) TimerEvent: {}
+[2.908195] (-) TimerEvent: {}
+[3.008638] (-) TimerEvent: {}
+[3.109070] (-) TimerEvent: {}
+[3.209550] (-) TimerEvent: {}
+[3.309981] (-) TimerEvent: {}
+[3.410226] (-) TimerEvent: {}
+[3.510563] (-) TimerEvent: {}
+[3.610809] (-) TimerEvent: {}
+[3.711089] (-) TimerEvent: {}
+[3.811447] (-) TimerEvent: {}
+[3.911786] (-) TimerEvent: {}
+[4.012157] (-) TimerEvent: {}
+[4.112503] (-) TimerEvent: {}
+[4.212874] (-) TimerEvent: {}
+[4.313213] (-) TimerEvent: {}
+[4.413564] (-) TimerEvent: {}
+[4.513904] (-) TimerEvent: {}
+[4.614270] (-) TimerEvent: {}
+[4.714625] (-) TimerEvent: {}
+[4.814980] (-) TimerEvent: {}
+[4.915329] (-) TimerEvent: {}
+[5.015671] (-) TimerEvent: {}
+[5.116008] (-) TimerEvent: {}
+[5.216357] (-) TimerEvent: {}
+[5.316718] (-) TimerEvent: {}
+[5.417070] (-) TimerEvent: {}
+[5.517435] (-) TimerEvent: {}
+[5.617794] (-) TimerEvent: {}
+[5.718128] (-) TimerEvent: {}
+[5.818469] (-) TimerEvent: {}
+[5.918820] (-) TimerEvent: {}
+[6.019205] (-) TimerEvent: {}
+[6.119550] (-) TimerEvent: {}
+[6.219872] (-) TimerEvent: {}
+[6.320210] (-) TimerEvent: {}
+[6.420553] (-) TimerEvent: {}
+[6.520920] (-) TimerEvent: {}
+[6.621208] (-) TimerEvent: {}
+[6.721598] (-) TimerEvent: {}
+[6.822002] (-) TimerEvent: {}
+[6.903345] (irc_simulation) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable ball_chaser\x1b[0m\n'}
+[6.922156] (-) TimerEvent: {}
+[7.022601] (-) TimerEvent: {}
+[7.123032] (-) TimerEvent: {}
+[7.156353] (irc_simulation) StdoutLine: {'line': b'[100%] Built target ball_chaser\n'}
+[7.165333] (irc_simulation) CommandEnded: {'returncode': 0}
+[7.166158] (irc_simulation) JobProgress: {'identifier': 'irc_simulation', 'progress': 'install'}
+[7.178775] (irc_simulation) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/kouki/ros2_ws/src/irc_simulation/build/irc_simulation'], 'cwd': '/home/kouki/ros2_ws/src/irc_simulation/build/irc_simulation', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'kouki'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/kouki'), ('OLDPWD', '/home/kouki/ros2_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1277'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kouki/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kouki'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'kouki'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '1'), ('PATH', '/opt/ros/humble/bin:/home/kouki/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/kouki-desktop:@/tmp/.ICE-unix/1240,unix/kouki-desktop:/tmp/.ICE-unix/1240'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/a0aa79d7_8d31_45b0_adae_57f1a36d2431'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'ja_JP.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.N0BTG3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.104'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/kouki/ros2_ws/install/intelligent_robot_contest:/home/kouki/ros2_ws/install/simulation_irc:/home/kouki/ros2_ws/install/mypkg:/home/kouki/ros2_ws/install/irc_simulation:/home/kouki/ros2_ws/install/ball_detector_pkg:/home/kouki/ros2_ws/install/IRC_ros2:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kouki/ros2_ws/src/irc_simulation/build/irc_simulation'), ('TURTLEBOT3_MODEL', 'waffle_pi'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kouki/ros2_ws/install/intelligent_robot_contest/lib/python3.10/site-packages:/home/kouki/ros2_ws/install/mypkg/lib/python3.10/site-packages:/home/kouki/ros2_ws/install/ball_detector_pkg/lib/python3.10/site-packages:/home/kouki/ros2_ws/install/IRC_ros2/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/kouki/ros2_ws/install/simulation_irc:/home/kouki/ros2_ws/install/irc_simulation:/home/kouki/ros2_ws/install/intelligent_robot_contest:/home/kouki/ros2_ws/install/mypkg:/home/kouki/ros2_ws/install/ball_detector_pkg:/home/kouki/ros2_ws/install/IRC_ros2:/opt/ros/humble')]), 'shell': False}
+[7.190450] (irc_simulation) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[7.190729] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/lib/irc_simulation/ball_chaser\n'}
+[7.194257] (irc_simulation) StdoutLine: {'line': b'-- Set runtime path of "/home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/lib/irc_simulation/ball_chaser" to ""\n'}
+[7.194425] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/lib/irc_simulation/ball_color_node.py\n'}
+[7.194508] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/launch\n'}
+[7.194621] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/launch/spawn_random_balls.launch.py\n'}
+[7.194696] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/launch/irc.launch.py\n'}
+[7.194854] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/worlds\n'}
+[7.194911] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/worlds/irc.world\n'}
+[7.194970] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models\n'}
+[7.195025] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot\n'}
+[7.195101] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot/wheel.dae\n'}
+[7.201945] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot/robo.stl\n'}
+[7.216588] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot/wheels.stl\n'}
+[7.218653] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot/robot2.dae\n'}
+[7.223249] (-) TimerEvent: {}
+[7.242824] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot/model.config\n'}
+[7.243405] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot/wheel2.dae\n'}
+[7.249178] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot/robot2.stl\n'}
+[7.263898] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot/model.sdf\n'}
+[7.264371] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot/robo.dae\n'}
+[7.290923] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot/wheel.stl\n'}
+[7.294502] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot/wheels.dae\n'}
+[7.299179] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/robot/wheel2.stl\n'}
+[7.301871] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/irc_stage\n'}
+[7.302184] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/irc_stage/model.config\n'}
+[7.302550] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/irc_stage/model.sdf\n'}
+[7.303038] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/irc_stage/meshes\n'}
+[7.303201] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/irc_stage/meshes/irc_stage3.dae\n'}
+[7.304555] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/irc_stage/meshes/irc_stage3.stl\n'}
+[7.306154] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/irc_stage/meshes/irc_stage2.dae\n'}
+[7.308142] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/irc_stage/meshes/irc_stage.dae\n'}
+[7.309653] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/irc_stage/meshes/irc_stage4.stl\n'}
+[7.310684] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/irc_stage/meshes/irc_stage2.stl\n'}
+[7.311410] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/irc_stage/meshes/irc_stage.stl\n'}
+[7.311731] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/irc_stage/meshes/irc_stage4.dae\n'}
+[7.313564] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/ball_red\n'}
+[7.313826] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/ball_red/model.sdf\n'}
+[7.314071] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/ball_blue\n'}
+[7.314223] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/ball_blue/model.sdf\n'}
+[7.314398] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/ball_yellow\n'}
+[7.314530] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/models/ball_yellow/model.sdf\n'}
+[7.315008] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/config\n'}
+[7.315339] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/config/rviz.yaml\n'}
+[7.315443] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/weights\n'}
+[7.315547] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/weights/best.pt\n'}
+[7.322076] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/ament_index/resource_index/package_run_dependencies/irc_simulation\n'}
+[7.322274] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/ament_index/resource_index/parent_prefix_path/irc_simulation\n'}
+[7.322385] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/environment/ament_prefix_path.sh\n'}
+[7.322490] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/environment/ament_prefix_path.dsv\n'}
+[7.322552] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/environment/path.sh\n'}
+[7.322639] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/environment/path.dsv\n'}
+[7.322734] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/local_setup.bash\n'}
+[7.322805] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/local_setup.sh\n'}
+[7.322885] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/local_setup.zsh\n'}
+[7.322970] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/local_setup.dsv\n'}
+[7.323063] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/package.dsv\n'}
+[7.323202] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/ament_index/resource_index/packages/irc_simulation\n'}
+[7.323259] (-) TimerEvent: {}
+[7.323386] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/cmake/irc_simulationConfig.cmake\n'}
+[7.323488] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/cmake/irc_simulationConfig-version.cmake\n'}
+[7.323575] (irc_simulation) StdoutLine: {'line': b'-- Installing: /home/kouki/ros2_ws/src/irc_simulation/install/irc_simulation/share/irc_simulation/package.xml\n'}
+[7.325503] (irc_simulation) CommandEnded: {'returncode': 0}
+[7.342747] (irc_simulation) JobEnded: {'identifier': 'irc_simulation', 'rc': 0}
+[7.343088] (-) EventReactorShutdown: {}

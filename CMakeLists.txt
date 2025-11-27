@@ -12,6 +12,41 @@ find_package(ros_gz_sim REQUIRED)
 find_package(ros_gz_bridge REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
+find_package(geometry_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
+
+# =========================================
+# 1. C++ノードのビルド設定 
+# =========================================
+add_executable(ball_chaser src/ball_chaser.cpp)
+ament_target_dependencies(ball_chaser rclcpp geometry_msgs std_msgs)
+
+# =========================================
+# 2. 実行ファイル(TARGETS)のインストール
+# =========================================
+install(TARGETS
+  ball_chaser
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# Pythonスクリプトを実行ファイルとしてインストールする命令
+install(PROGRAMS
+  src/ball_color_node.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# =========================================
+# 3. ディレクトリ(DIRECTORY)のインストール
+# =========================================
+install(DIRECTORY
+  launch
+  worlds
+  models
+  config
+  weights
+  DESTINATION share/${PROJECT_NAME}
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -24,12 +59,6 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-install(DIRECTORY
-  launch
-  worlds
-  models
-  config
-  DESTINATION share/${PROJECT_NAME}
-)
+
 
 ament_package()

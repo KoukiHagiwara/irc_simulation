@@ -7,12 +7,24 @@
 <img width="1002" height="874" alt="Image" src="https://github.com/user-attachments/assets/51249a96-f85f-4349-bff8-849432b33e9a" />
 
 ## 実行方法
-実行は以下のコマンドを用いて行います。
+実行は以下のコマンドを用いて行います。４つ目のターミナル操作はボールが見える位置まで移動するためのものです。
 
+1つ目のターミナル
 ```
 $ ros2 launch irc_simulation irc.launch.py
 ```
-
+2つ目のターミナル
+```
+$ ros2 run irc_simulation ball_color_node.py
+```
+3つ目のターミナル
+```
+$ ros2 ros2 run irc_simulation ball_chaser
+```
+4つ目のターミナル
+```
+$ ign topic -e -t /keyboard/keypress
+```
 # 動作環境
 - Python 3.10
 - Ubuntu 22.04 LTS

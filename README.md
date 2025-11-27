@@ -19,7 +19,7 @@ $ ros2 run irc_simulation ball_color_node.py
 ```
 3つ目のターミナル
 ```
-$ ros2 ros2 run irc_simulation ball_chaser
+$ ros2 run irc_simulation ball_chaser
 ```
 4つ目のターミナル
 ```

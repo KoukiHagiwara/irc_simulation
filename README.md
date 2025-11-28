@@ -5,17 +5,17 @@
 
 ## Node説明
 
-- irc.launch.py
-シミュレーションを起動させる
-- ball_color_node.py
-YOLOを使用したカメラによる画像認識を行う
- - 一番手前に映るボールの色とカメラからの距離を判定
-- ball_chaaser.cpp
-実機でArduinoを使用する部分の代替用のC++のコード
- - 受け取ったボール情報に対してモータを回しボールへ近づく
- - 一定距離まで近づいたらモータを止める
-- spawn_random_balls.launch.py
-ステージ上にボールを配置
+1. irc.launch.py
+- シミュレーションを起動させる
+2. ball_color_node.py
+- YOLOを使用したカメラによる画像認識を行う
+- 一番手前に映るボールの色とカメラからの距離を判定
+3. ball_chaaser.cpp
+- 実機でArduinoを使用する部分の代替用のC++のコード
+- 受け取ったボール情報に対してモータを回しボールへ近づく
+- 一定距離まで近づいたらモータを止める
+4. spawn_random_balls.launch.py
+- ステージ上にボールを配置
 
 
 

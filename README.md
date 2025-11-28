@@ -5,21 +5,21 @@
 
 ## Nodes
 1. ball_color_node.py
-YOLOv8を用いてカメラ映像からボールを検出するノード
-- 入力: /camera_sensor (sensor_msgs/Image)
-- 出力: /ball_info (std_msgs/String)
-- 処理: 一番手前にあるボールの色と距離を判定し、後段の制御ノードへ送信
+- YOLOv8を用いてカメラ映像からボールを検出するノード
+  - 入力: /camera_sensor (sensor_msgs/Image)
+  - 出力: /ball_info (std_msgs/String)
+  - 処理: 一番手前にあるボールの色と距離を判定し、後段の制御ノードへ送信
 
 2. ball_chaser.cpp
-実機のArduino制御部分をシミュレーション用に代替した制御ノード
-- 入力: /ball_info (std_msgs/String)
-- 出力: /cmd_vel (geometry_msgs/Twist)
-- 処理: 受け取ったボール情報に基づいてモータ指令（速度・旋回）を生成し、一定距離まで近づくと停止
+- 実機のArduino制御部分をシミュレーション用に代替した制御ノード
+  - 入力: /ball_info (std_msgs/String)
+  - 出力: /cmd_vel (geometry_msgs/Twist)
+  - 処理: 受け取ったボール情報に基づいてモータ指令（速度・旋回）を生成し、一定距離まで近づくと停止
 
 ## Launch Files
 シミュレーション環境やオブジェクトを生成するためのスクリプト
 - irc.launch.py: ロボットとステージを含むシミュレーション全体を起動
-- spawn_random_balls.launch.py: ステージ上にボールをランダムに配置します。
+- spawn_random_balls.launch.py: ステージ上にボールをランダムに配置
 
 
 

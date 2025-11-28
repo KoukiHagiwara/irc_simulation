@@ -1,21 +1,25 @@
 # simulation_irc
-知能ロボットコンテスト
-- gazebo(igniton fortress)によるシミュレーションを行う
-- gazebo classicはサポート期間が終了しており、今後もシミュレーションを行うことを考えfortressを使うことにした
+知能ロボットコンテスト用シミュレーションパッケージ
+- Gazebo (Ignition Fortress) を使用して、ロボットの動作検証を行うためのROS 2パッケージです。
+- Gazebo Classicのサポート終了に伴い、長期間の運用を見据えてFortressを採用しました。
 
-## Node説明
+## Nodes
+1. ball_color_node.py
+YOLOv8を用いてカメラ映像からボールを検出するノード
+- 入力: /camera_sensor (sensor_msgs/Image)
+- 出力: /ball_info (std_msgs/String)
+- 処理: 一番手前にあるボールの色と距離を判定し、後段の制御ノードへ送信
 
-1. irc.launch.py
-- シミュレーションを起動させる
-2. ball_color_node.py
-- YOLOを使用したカメラによる画像認識を行う
-- 一番手前に映るボールの色とカメラからの距離を判定
-3. ball_chaaser.cpp
-- 実機でArduinoを使用する部分の代替用のC++のコード
-- 受け取ったボール情報に対してモータを回しボールへ近づく
-- 一定距離まで近づいたらモータを止める
-4. spawn_random_balls.launch.py
-- ステージ上にボールを配置
+2. ball_chaser.cpp
+実機のArduino制御部分をシミュレーション用に代替した制御ノード
+- 入力: /ball_info (std_msgs/String)
+- 出力: /cmd_vel (geometry_msgs/Twist)
+- 処理: 受け取ったボール情報に基づいてモータ指令（速度・旋回）を生成し、一定距離まで近づくと停止
+
+## Launch Files
+シミュレーション環境やオブジェクトを生成するためのスクリプト
+- irc.launch.py: ロボットとステージを含むシミュレーション全体を起動
+- spawn_random_balls.launch.py: ステージ上にボールをランダムに配置します。
 
 
 
@@ -23,26 +27,26 @@
 <img width="1002" height="874" alt="Image" src="https://github.com/user-attachments/assets/51249a96-f85f-4349-bff8-849432b33e9a" />
 
 ## 実行方法
-実行は以下のコマンドを用いて行います。４つ目のターミナル操作はボールが見える位置まで移動するためのものです。
+以下の手順でシミュレーションを実行します。
 
-1つ目のターミナル
+1. シミュレーションの起動
 ```
 $ ros2 launch irc_simulation irc.launch.py
 ```
-2つ目のターミナル
+2. 画像認識ノードの起動
 ```
 $ ros2 run irc_simulation ball_color_node.py
 ```
-3つ目のターミナル
+3. 制御ノードの起動
 ```
 $ ros2 run irc_simulation ball_chaser
 ```
-4つ目のターミナル
+4. 手動操作(ボール探索用)ロボットをボールが見える位置までキーボードで移動させるために使用します。
 ```
 $ ign topic -e -t /keyboard/keypress
 ```
 # 動作環境
-- Python 3.10
+- Python 3.10, C++
 - Ubuntu 22.04 LTS
 - ROS2 humble
 - Gazebo Fortress

@@ -1,4 +1,4 @@
-# simulation_irc
+# irc_simulation
 知能ロボットコンテスト用シミュレーションパッケージ
 - Gazebo (Ignition Fortress) を使用して、ロボットの動作検証を行うためのROS 2パッケージです。
 - Gazebo Classicのサポート終了に伴い、長期間の運用を見据えてFortressを採用しました。
@@ -46,7 +46,7 @@ $ ros2 run irc_simulation ball_chaser
 $ ign topic -e -t /keyboard/keypress
 ```
 # 動作環境
-- Python 3.10, C++
+- Python 3.10,  C++
 - Ubuntu 22.04 LTS
 - ROS2 humble
 - Gazebo Fortress

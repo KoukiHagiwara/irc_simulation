@@ -1,0 +1,13 @@
+build/
+install/
+log/
+.colcon/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.vscode/
+.idea/

@@ -248,5 +248,178 @@
       <!--pose>0.2 0 0.1 0 0 0</pose-->
     </joint>
 
+    <link name="line_left_left_link">
+      <pose relative_to="base_link">-0.036 0.22 -0.055 0 0 0</pose>
+      <inertial>
+        <mass>0.001</mass>
+        <inertia><ixx>1e-6</ixx><iyy>1e-6</iyy><izz>1e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+      <visual name="visual">
+        <geometry><box><size>0.015 0.022 0.01</size></box></geometry>
+        <material>
+          <diffuse>0.0 1.0 1.0 1.0</diffuse><ambient>0.0 1.0 1.0 1.0</ambient>
+        </material>
+      </visual>
+      <sensor name="line_left_left" type="camera">
+        <pose>0 0 0 0 1.57 0</pose>
+        <camera>
+          <horizontal_fov>0.5</horizontal_fov>
+          <image><width>2</width><height>2</height><format>R8G8B8</format></image>
+          <clip><near>0.01</near><far>0.2</far></clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <topic>/line/left_left</topic>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+    <joint name="line_left_left_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>line_left_left_link</child>
+    </joint>
+
+    <link name="line_left_link">
+      <pose relative_to="base_link">-0.018 0.22 -0.055 0 0 0</pose>
+      <inertial>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>1e-6</ixx><iyy>1e-6</iyy><izz>1e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      
+      <visual name="visual">
+        <geometry>
+          <box><size>0.015 0.022 0.01</size></box>
+        </geometry>
+        <material>
+          <diffuse>0.0 1.0 1.0 1.0</diffuse>
+          <ambient>0.0 1.0 1.0 1.0</ambient>
+        </material>
+      </visual>
+
+      <sensor name="line_left" type="camera">
+        <pose>0 0 0 0 1.57 0</pose>
+        <camera>
+          <horizontal_fov>0.5</horizontal_fov>
+          <image>
+            <width>2</width>
+            <height>2</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>0.2</far>
+          </clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <topic>/line/left</topic>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+
+    <joint name="line_left_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>line_left_link</child>
+    </joint>
+
+
+    <link name="line_center_link">
+      <pose relative_to="base_link">0 0.22 -0.055 0 0 0</pose>
+      <inertial>
+        <mass>0.001</mass>
+        <inertia><ixx>1e-6</ixx><iyy>1e-6</iyy><izz>1e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+      
+      <visual name="visual">
+        <geometry><box><size>0.015 0.022 0.01</size></box></geometry>
+        <material>
+          <diffuse>0.0 1.0 1.0 1.0</diffuse><ambient>0.0 1.0 1.0 1.0</ambient>
+        </material>
+      </visual>
+
+      <sensor name="line_center" type="camera">
+        <pose>0 0 0 0 1.57 0</pose>
+        <camera>
+          <horizontal_fov>0.5</horizontal_fov>
+          <image><width>2</width><height>2</height><format>R8G8B8</format></image>
+          <clip><near>0.01</near><far>0.2</far></clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <topic>/line/center</topic>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+
+    <joint name="line_center_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>line_center_link</child>
+    </joint>
+
+    <link name="line_right_link">
+      <pose relative_to="base_link">0.018 0.22 -0.055 0 0 0</pose>
+      <inertial>
+        <mass>0.001</mass>
+        <inertia><ixx>1e-6</ixx><iyy>1e-6</iyy><izz>1e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+      
+      <visual name="visual">
+        <geometry><box><size>0.015 0.022 0.01</size></box></geometry>
+        <material>
+          <diffuse>0.0 1.0 1.0 1.0</diffuse><ambient>0.0 1.0 1.0 1.0</ambient>
+        </material>
+      </visual>
+
+      <sensor name="line_right" type="camera">
+        <pose>0 0 0 0 1.57 0</pose> 
+        <camera>
+          <horizontal_fov>0.5</horizontal_fov>
+          <image><width>2</width><height>2</height><format>R8G8B8</format></image>
+          <clip><near>0.01</near><far>0.2</far></clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <topic>/line/right</topic>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+
+    <joint name="line_right_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>line_right_link</child>
+    </joint>
+
+    <link name="line_right_right_link">
+      <pose relative_to="base_link">0.036 0.22 -0.055 0 0 0</pose>
+      <inertial>
+        <mass>0.001</mass>
+        <inertia><ixx>1e-6</ixx><iyy>1e-6</iyy><izz>1e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+      <visual name="visual">
+        <geometry><box><size>0.015 0.022 0.01</size></box></geometry>
+        <material>
+          <diffuse>0.0 1.0 1.0 1.0</diffuse><ambient>0.0 1.0 1.0 1.0</ambient>
+        </material>
+      </visual>
+      <sensor name="line_right_right" type="camera">
+        <pose>0 0 0 0 1.57 0</pose>
+        <camera>
+          <horizontal_fov>0.5</horizontal_fov>
+          <image><width>2</width><height>2</height><format>R8G8B8</format></image>
+          <clip><near>0.01</near><far>0.2</far></clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <topic>/line/right_right</topic>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+    <joint name="line_right_right_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>line_right_right_link</child>
+    </joint>
+    
+
   </model>
 </sdf>

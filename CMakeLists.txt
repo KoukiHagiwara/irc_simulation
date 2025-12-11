@@ -19,7 +19,7 @@ find_package(std_msgs REQUIRED)
 # 1. C++ノードのビルド設定 
 # =========================================
 add_executable(ball_chaser src/ball_chaser.cpp)
-ament_target_dependencies(ball_chaser rclcpp geometry_msgs std_msgs)
+ament_target_dependencies(ball_chaser rclcpp geometry_msgs std_msgs sensor_msgs)
 
 # =========================================
 # 2. 実行ファイル(TARGETS)のインストール

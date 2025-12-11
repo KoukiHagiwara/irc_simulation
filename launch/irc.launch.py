@@ -54,16 +54,16 @@ def generate_launch_description():
     )
     
     # 4. TF (座標変換) のブリッジを起動 (修正済み)
-    tf_bridge = Node(
-        package='ros_gz_bridge',
-        executable='parameter_bridge',
-        name='tf_bridge',
-        arguments=[
+    #tf_bridge = Node(
+     #   package='ros_gz_bridge',
+      #  executable='parameter_bridge',
+       # name='tf_bridge',
+        #arguments=[
             # 正しいTFトピック名に変更
-            '/world/irc_world/pose/info@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V'
-        ],
-        output='screen'
-    )
+         #   '/world/irc_world/pose/info@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V'
+        #],
+       # output='screen'
+    #)
 
     # 5. RViz2 を起動 (元からOK)
     rviz = Node(
@@ -94,7 +94,7 @@ def generate_launch_description():
         set_model_path, 
         gz_sim,
         ros_gz_bridge,
-        tf_bridge,
+        #tf_bridge,
         rviz,
         spawn_balls_cmd
     ])

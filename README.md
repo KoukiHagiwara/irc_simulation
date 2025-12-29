@@ -28,6 +28,7 @@
 
 ## 実行画面
 <img width="1002" height="874" alt="Image" src="https://github.com/user-attachments/assets/51249a96-f85f-4349-bff8-849432b33e9a" />
+<video width="1002" height="874" controls src="https://github.com/user-attachments/assets/7161ce11-f42c-4871-b87b-a213896397f7"></video>
 
 ## 実行方法
 以下の手順でシミュレーションを実行します。

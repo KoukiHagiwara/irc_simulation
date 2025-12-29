@@ -53,28 +53,6 @@
       <!--<pose>-1.0 0.65 0.28 0.043 0.15 -1.6</pose>-->
       <pose>-0.8 0.9 0.4 0.043 0.15 -1.6</pose>
     </include>
-
-    <model name="ball_1">
-      <pose>-1.0 0 2 0 0 0</pose>
-      <link name='link_ball'>
-        <inertial>
-          <mass>0.01</mass>
-        </inertial>
-        <collision name='collision'>
-          <geometry>
-            <sphere><radius>0.033</radius></sphere>
-          </geometry>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <sphere><radius>0.033</radius></sphere>
-          </geometry>
-          <material>
-            <diffuse>1 0 0 1</diffuse> <ambient>1 0 0 1</ambient>
-          </material>
-        </visual>
-      </link>
-    </model>
     
   </world>
 </sdf>

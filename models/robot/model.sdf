@@ -101,7 +101,7 @@
     </link>
 
     <link name='left_wheel'>
-        <pose relative_to="base_link">-0.18 0 -0.03 0 3.14 0</pose>
+        <pose relative_to="base_link">-0.18 0 -0.027 0 3.14 0</pose>
         <inertial>
             <mass>1</mass>
             <inertia>
@@ -150,7 +150,7 @@
     </joint>
 
     <link name='right_wheel'>
-        <pose relative_to="base_link">0.18 0 -0.03 0 0 0</pose> <!--angles are in radian-->
+        <pose relative_to="base_link">0.18 0 -0.027 0 0 0</pose> <!--angles are in radian-->
         <inertial>
             <mass>1</mass>
             <inertia>
@@ -249,7 +249,7 @@
     </joint>
 
     <link name="line_left_left_link">
-      <pose relative_to="base_link">-0.036 0.22 -0.055 0 0 0</pose>
+      <pose relative_to="base_link">-0.036 0.22 -0.057 0 0 0</pose>
       <inertial>
         <mass>0.001</mass>
         <inertia><ixx>1e-6</ixx><iyy>1e-6</iyy><izz>1e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
@@ -279,7 +279,7 @@
     </joint>
 
     <link name="line_left_link">
-      <pose relative_to="base_link">-0.018 0.22 -0.055 0 0 0</pose>
+      <pose relative_to="base_link">-0.018 0.22 -0.057 0 0 0</pose>
       <inertial>
         <mass>0.001</mass>
         <inertia>
@@ -325,7 +325,7 @@
 
 
     <link name="line_center_link">
-      <pose relative_to="base_link">0 0.22 -0.055 0 0 0</pose>
+      <pose relative_to="base_link">0 0.22 -0.057 0 0 0</pose>
       <inertial>
         <mass>0.001</mass>
         <inertia><ixx>1e-6</ixx><iyy>1e-6</iyy><izz>1e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
@@ -358,7 +358,7 @@
     </joint>
 
     <link name="line_right_link">
-      <pose relative_to="base_link">0.018 0.22 -0.055 0 0 0</pose>
+      <pose relative_to="base_link">0.018 0.22 -0.057 0 0 0</pose>
       <inertial>
         <mass>0.001</mass>
         <inertia><ixx>1e-6</ixx><iyy>1e-6</iyy><izz>1e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
@@ -391,7 +391,7 @@
     </joint>
 
     <link name="line_right_right_link">
-      <pose relative_to="base_link">0.036 0.22 -0.055 0 0 0</pose>
+      <pose relative_to="base_link">0.036 0.22 -0.057 0 0 0</pose>
       <inertial>
         <mass>0.001</mass>
         <inertia><ixx>1e-6</ixx><iyy>1e-6</iyy><izz>1e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>

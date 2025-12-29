@@ -21,7 +21,7 @@ class BallDetectorNode(Node):
         self.FOCAL_LENGTH = 718.409779
         
         # ★追加設定: 追いかける最大距離 (cm)
-        self.MAX_CHASE_DISTANCE = 70.0 
+        self.MAX_CHASE_DISTANCE = 80.0 
 
         # モデル読み込み
         self.get_logger().info(f"Loading YOLO model: {model_path}")

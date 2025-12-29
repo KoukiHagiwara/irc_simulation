@@ -15,8 +15,8 @@ def generate_launch_description():
         "blue": os.path.join(model_base_path, "ball_blue", "model.sdf"),
     }
     
-    x_offset = -0.8
-    y_offset = 1.1
+    x_offset = -0.95
+    y_offset = 0.8
 
     # 8つの矩形エリア [ (左下x, 左下y, 右上x, 右上y), ... ]
     base_areas = [

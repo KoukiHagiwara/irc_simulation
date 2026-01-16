@@ -258,13 +258,19 @@ private:
 
             case RobotState::GO_HOME:
                 {
-                    bool detected_cross_line = (is_l4 && is_r4);
+                    bool detected_cross_line = (is_l3 && is_r3);
                     if (detected_cross_line && !is_on_cross_line_) {
                         cross_line_count_++; is_on_cross_line_ = true;
                     } else if (!detected_cross_line) {
                         is_on_cross_line_ = false;
                     }
-
+                    
+                    // ★修正ポイント: 横線の上に乗っているときは強制的に直進させる
+                    if (is_on_cross_line_) {
+                        twist.linear.x = TRACE_SPEED;
+                        twist.angular.z = 0.0;
+                    }
+                    else{
                     // 帰還時のライントレース (8センサ版)
                     if (is_l4) { twist.linear.x = TRACE_SPEED*0.5; twist.angular.z = TURN_SPEED_STRONG; }
                     else if (is_l3) { twist.linear.x = TRACE_SPEED*0.5; twist.angular.z = TURN_SPEED_WEAK; }
@@ -272,7 +278,7 @@ private:
                     else if (is_r3) { twist.linear.x = TRACE_SPEED*0.5; twist.angular.z = -TURN_SPEED_WEAK; }
                     else if (is_l2 || is_l1 || is_r1 || is_r2) { twist.linear.x = TRACE_SPEED; twist.angular.z = 0.0; }
                     else { twist.linear.x = 0.0; twist.angular.z = 0.0; } 
-
+                    }
                     if (cross_line_count_ > 10) current_state_ = RobotState::FINISHED;
                 }
                 debug_state = "Going Home";

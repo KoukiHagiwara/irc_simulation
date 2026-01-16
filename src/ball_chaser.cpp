@@ -105,7 +105,7 @@ private:
 
                 // --- 通常トレース & 横線無視ロジック ---
                 {
-                    bool detected_cross_line = (is_ll && is_rr);
+                    bool detected_cross_line = (is_ll && is_rr && is_r && is_l );
 
                     if (detected_cross_line) {
                         if (!is_on_cross_line_) {
@@ -123,13 +123,22 @@ private:
                         debug_state = "Ignore Cross Line";
                     }
                     else {
-                        if (is_ll) { twist.linear.x = TRACE_SPEED * 0.3; twist.angular.z = TURN_SPEED_STRONG; debug_state="Left++"; }
+                        //ラインカウント2のカーブの時だけ左旋回しないようにした
+                        if (is_ll && cross_line_count_ != 2) { 
+                            twist.linear.x = TRACE_SPEED * 0.3; 
+                            twist.angular.z = TURN_SPEED_STRONG; 
+                            debug_state="Left++"; 
+                        }
                         else if (is_rr) { twist.linear.x = TRACE_SPEED * 0.3; twist.angular.z = -TURN_SPEED_STRONG; debug_state="Right++"; }
-                        else if (is_l) { twist.linear.x = TRACE_SPEED * 0.5; twist.angular.z = TURN_SPEED_WEAK; debug_state="Left"; }
+                        else if (is_l && cross_line_count_ != 2) {
+                            twist.linear.x = TRACE_SPEED * 0.5; 
+                            twist.angular.z = TURN_SPEED_WEAK; 
+                            debug_state="Left"; 
+                            }
                         else if (is_r) { twist.linear.x = TRACE_SPEED * 0.5; twist.angular.z = -TURN_SPEED_WEAK; debug_state="Right"; }
                         else if (is_c) { twist.linear.x = TRACE_SPEED; twist.angular.z = 0.0; debug_state="Straight"; }
                         else { twist.linear.x = 0.0; twist.angular.z = 0.0; debug_state="Lost"; }
-                    }
+                    }    
                 }
                 break;
 

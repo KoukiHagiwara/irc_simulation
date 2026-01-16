@@ -7,15 +7,14 @@
 #include <sstream>
 #include <cmath> 
 
-
 enum class RobotState {
-    LINE_TRACING,   // ライントレース
-    CHASING,        // ボール追跡
-    COLLECTING,     // 回収中
-    RETURNING,      // バックでラインに戻る
-    U_TURN,         // 180度回転
-    GO_HOME,        // ゴールへ帰還
-    FINISHED        // 終了
+    LINE_TRACING,
+    CHASING,
+    COLLECTING,
+    RETURNING,
+    U_TURN,
+    GO_HOME,
+    FINISHED
 };
 
 class BallChaser : public rclcpp::Node {
@@ -24,12 +23,17 @@ public:
         sub_ball_ = this->create_subscription<std_msgs::msg::String>(
             "/ball_info", 10, std::bind(&BallChaser::ball_callback, this, std::placeholders::_1));
         
-        // 5つのセンサー
-        sub_ll_ = this->create_subscription<sensor_msgs::msg::Image>("/line/left_left", 10, [this](const sensor_msgs::msg::Image::SharedPtr msg){ val_ll_ = msg->data[0]; });
-        sub_l_  = this->create_subscription<sensor_msgs::msg::Image>("/line/left", 10,      [this](const sensor_msgs::msg::Image::SharedPtr msg){ val_l_  = msg->data[0]; });
-        sub_c_  = this->create_subscription<sensor_msgs::msg::Image>("/line/center", 10,    [this](const sensor_msgs::msg::Image::SharedPtr msg){ val_c_  = msg->data[0]; });
-        sub_r_  = this->create_subscription<sensor_msgs::msg::Image>("/line/right", 10,     [this](const sensor_msgs::msg::Image::SharedPtr msg){ val_r_  = msg->data[0]; });
-        sub_rr_ = this->create_subscription<sensor_msgs::msg::Image>("/line/right_right", 10,[this](const sensor_msgs::msg::Image::SharedPtr msg){ val_rr_ = msg->data[0]; });
+        // ★8つのセンサを購読 (l4が一番左端, r4が一番右端)
+        auto qos = 10;
+        sub_l4_ = this->create_subscription<sensor_msgs::msg::Image>("/line/left4", qos, [this](const sensor_msgs::msg::Image::SharedPtr msg){ val_l4_ = msg->data[0]; });
+        sub_l3_ = this->create_subscription<sensor_msgs::msg::Image>("/line/left3", qos, [this](const sensor_msgs::msg::Image::SharedPtr msg){ val_l3_ = msg->data[0]; });
+        sub_l2_ = this->create_subscription<sensor_msgs::msg::Image>("/line/left2", qos, [this](const sensor_msgs::msg::Image::SharedPtr msg){ val_l2_ = msg->data[0]; });
+        sub_l1_ = this->create_subscription<sensor_msgs::msg::Image>("/line/left1", qos, [this](const sensor_msgs::msg::Image::SharedPtr msg){ val_l1_ = msg->data[0]; });
+        
+        sub_r1_ = this->create_subscription<sensor_msgs::msg::Image>("/line/right1", qos, [this](const sensor_msgs::msg::Image::SharedPtr msg){ val_r1_ = msg->data[0]; });
+        sub_r2_ = this->create_subscription<sensor_msgs::msg::Image>("/line/right2", qos, [this](const sensor_msgs::msg::Image::SharedPtr msg){ val_r2_ = msg->data[0]; });
+        sub_r3_ = this->create_subscription<sensor_msgs::msg::Image>("/line/right3", qos, [this](const sensor_msgs::msg::Image::SharedPtr msg){ val_r3_ = msg->data[0]; });
+        sub_r4_ = this->create_subscription<sensor_msgs::msg::Image>("/line/right4", qos, [this](const sensor_msgs::msg::Image::SharedPtr msg){ val_r4_ = msg->data[0]; });
 
         publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
         
@@ -38,7 +42,7 @@ public:
         timer_ = this->create_wall_timer(
             std::chrono::milliseconds(20), std::bind(&BallChaser::control_loop, this));
             
-        RCLCPP_INFO(this->get_logger(), "Ball Chaser (Smart Capture Logic) Started.");
+        RCLCPP_INFO(this->get_logger(), "Ball Chaser (8 Sensors Stable Logic) Started.");
     }
 
 private:
@@ -47,8 +51,6 @@ private:
         char cmd_buf[10]; 
         if (sscanf(data.c_str(), "%[^:]:%lf:%lf", cmd_buf, &ball_dist_, &ball_center_x_) >= 1) {
             ball_command_ = cmd_buf[0];
-            
-            // ★追加: ボールが見えている間、前回の距離と色を記憶しておく
             if (ball_command_ != 'N') {
                 last_known_dist_ = ball_dist_;
                 last_known_command_ = ball_command_;
@@ -73,13 +75,19 @@ private:
 
         std::string debug_state = "STOP";
         
-        // センサー判定
-        bool is_ll = (val_ll_ < BLACK_THRESHOLD);
-        bool is_l  = (val_l_  < BLACK_THRESHOLD);
-        bool is_c  = (val_c_  < BLACK_THRESHOLD);
-        bool is_r  = (val_r_  < BLACK_THRESHOLD);
-        bool is_rr = (val_rr_ < BLACK_THRESHOLD);
-        bool is_any_black = (is_ll || is_l || is_c || is_r || is_rr);
+        // 8つのセンサ判定
+        bool is_l4 = (val_l4_ < BLACK_THRESHOLD); // 最左
+        bool is_l3 = (val_l3_ < BLACK_THRESHOLD);
+        bool is_l2 = (val_l2_ < BLACK_THRESHOLD);
+        bool is_l1 = (val_l1_ < BLACK_THRESHOLD); // 内側左
+        
+        bool is_r1 = (val_r1_ < BLACK_THRESHOLD); // 内側右
+        bool is_r2 = (val_r2_ < BLACK_THRESHOLD);
+        bool is_r3 = (val_r3_ < BLACK_THRESHOLD);
+        bool is_r4 = (val_r4_ < BLACK_THRESHOLD); // 最右
+
+        // バック復帰用（どれか一つでも黒ならライン上）
+        bool is_any_black = (is_l4 || is_l3 || is_l2 || is_l1 || is_r1 || is_r2 || is_r3 || is_r4);
 
         int total_balls = red_count_ + blue_count_ + yellow_count_;
         const int GOAL_BALL_COUNT = 1; 
@@ -89,23 +97,22 @@ private:
             // 0. ライントレース
             // ==========================================
             case RobotState::LINE_TRACING:
-                // ※GO_HOME遷移はRETURNINGでの判定に任せるが、ここでも念のため
                 if (total_balls >= GOAL_BALL_COUNT) {
-                    // ここに来ることは稀（バック中にUターンするから）
+                    // 通過
                 }
 
                 if (ball_command_ != 'N' && ball_dist_ <= MAX_CHASE_DISTANCE) {
                     current_state_ = RobotState::CHASING;
                     chase_start_time_ = now;
-                    // 追跡開始時に記憶変数をリセットしない（前の値を誤用しないよう注意）
                     last_known_dist_ = ball_dist_; 
                     RCLCPP_INFO(this->get_logger(), "Ball Found! Switch to CHASING.");
                     return;
                 }
 
-                // --- 通常トレース & 横線無視ロジック ---
+                // --- 8センサ ライントレースロジック ---
                 {
-                    bool detected_cross_line = (is_ll && is_rr && is_r && is_l );
+                    // 横線検知: 両端(L4, R4)が同時に黒なら横線とみなす
+                    bool detected_cross_line = (is_l3 && is_r3);
 
                     if (detected_cross_line) {
                         if (!is_on_cross_line_) {
@@ -123,21 +130,44 @@ private:
                         debug_state = "Ignore Cross Line";
                     }
                     else {
-                        //ラインカウント2のカーブの時だけ左旋回しないようにした
-                        if (is_ll && cross_line_count_ != 2) { 
+                        // ★修正: 外側(3,4)で曲がる、内側(1,2)は直進
+                        // cross_line_count_ != 2 の左折禁止制限も維持
+
+                        // --- 左旋回 (Outer Sensors) ---
+                        if (is_l4 && cross_line_count_ != 2) { 
                             twist.linear.x = TRACE_SPEED * 0.3; 
                             twist.angular.z = TURN_SPEED_STRONG; 
-                            debug_state="Left++"; 
+                            debug_state="Left++ (L4)"; 
                         }
-                        else if (is_rr) { twist.linear.x = TRACE_SPEED * 0.3; twist.angular.z = -TURN_SPEED_STRONG; debug_state="Right++"; }
-                        else if (is_l && cross_line_count_ != 2) {
+                        else if (is_l3 && cross_line_count_ != 2) { 
                             twist.linear.x = TRACE_SPEED * 0.5; 
                             twist.angular.z = TURN_SPEED_WEAK; 
-                            debug_state="Left"; 
-                            }
-                        else if (is_r) { twist.linear.x = TRACE_SPEED * 0.5; twist.angular.z = -TURN_SPEED_WEAK; debug_state="Right"; }
-                        else if (is_c) { twist.linear.x = TRACE_SPEED; twist.angular.z = 0.0; debug_state="Straight"; }
-                        else { twist.linear.x = 0.0; twist.angular.z = 0.0; debug_state="Lost"; }
+                            debug_state="Left (L3)"; 
+                        }
+                        // --- 右旋回 (Outer Sensors) ---
+                        else if (is_r4) { 
+                            twist.linear.x = TRACE_SPEED * 0.3; 
+                            twist.angular.z = -TURN_SPEED_STRONG; 
+                            debug_state="Right++ (R4)"; 
+                        }
+                        else if (is_r3) { 
+                            twist.linear.x = TRACE_SPEED * 0.5; 
+                            twist.angular.z = -TURN_SPEED_WEAK; 
+                            debug_state="Right (R3)"; 
+                        }
+                        // --- 直進 (Inner Sensors: L2, L1, R1, R2) ---
+                        // 内側のセンサのどれかが黒なら直進する
+                        else if (is_l2 || is_l1 || is_r1 || is_r2) { 
+                            twist.linear.x = TRACE_SPEED; 
+                            twist.angular.z = 0.0; 
+                            debug_state="Straight (Inner)"; 
+                        }
+                        // --- ロスト ---
+                        else { 
+                            twist.linear.x = 0.0; 
+                            twist.angular.z = 0.0; 
+                            debug_state="Lost"; 
+                        }
                     }    
                 }
                 break;
@@ -147,51 +177,37 @@ private:
             // ==========================================
             case RobotState::CHASING:
                 if (ball_command_ == 'N') {
-                    // ★重要修正: 見失ったとき、直前の距離が近ければ「確保成功」とみなす
-                    // TARGET_DISTANCE(40cm) より少し余裕を持たせて +10cm 以内なら成功とする
                     if (last_known_dist_ <= (TARGET_DISTANCE + 40.0)) {
-                        RCLCPP_INFO(this->get_logger(), "Lost ball but close (%.1fcm). Assuming CAUGHT.", last_known_dist_);
-                        
-                        twist.linear.x = 0.0;
-                        twist.angular.z = 0.0;
+                        RCLCPP_INFO(this->get_logger(), "Assuming CAUGHT (Last: %.1fcm).", last_known_dist_);
+                        twist.linear.x = 0.0; twist.angular.z = 0.0;
                         current_state_ = RobotState::COLLECTING;
                         state_start_time_ = now;
                         
-                        // 直前の色情報を使ってカウント
                         if (last_known_command_ == 'R') red_count_++;
                         else if (last_known_command_ == 'B') blue_count_++;
                         else if (last_known_command_ == 'Y') yellow_count_++;
-                        
                         RCLCPP_INFO(this->get_logger(), "Caught Ball! Total: %d", total_balls + 1);
-
                     } else {
-                        // 本当に見失った（遠い）
                         current_state_ = RobotState::RETURNING;
                         state_start_time_ = now;
-                        RCLCPP_INFO(this->get_logger(), "Lost Ball (Too far: %.1fcm). Returning...", last_known_dist_);
+                        RCLCPP_INFO(this->get_logger(), "Lost Ball. Returning...");
                     }
                 } 
                 else {
-                    // ボールが見えている場合
                     double error = 320.0 - ball_center_x_;
                     twist.angular.z = 0.005 * error;
-                    
                     if (std::abs(error) < 50.0) {
                         if (ball_dist_ > TARGET_DISTANCE) {
                             twist.linear.x = 0.2; 
                             debug_state = "Chasing";
                         } else {
-                            // 距離条件を満たして停止
-                            twist.linear.x = 0.0;
-                            twist.angular.z = 0.0;
+                            twist.linear.x = 0.0; twist.angular.z = 0.0;
                             current_state_ = RobotState::COLLECTING;
                             state_start_time_ = now;
-                            
                             if (ball_command_ == 'R') red_count_++;
                             else if (ball_command_ == 'B') blue_count_++;
                             else if (ball_command_ == 'Y') yellow_count_++;
-                            
-                            RCLCPP_INFO(this->get_logger(), "Caught Ball (Dist OK)! Total: %d", total_balls + 1);
+                            RCLCPP_INFO(this->get_logger(), "Caught Ball! Total: %d", total_balls + 1);
                         }
                     } else {
                         twist.linear.x = 0.05; 
@@ -200,14 +216,8 @@ private:
                 }
                 break;
 
-            // ==========================================
-            // 2. 回収 (停止)
-            // ==========================================
             case RobotState::COLLECTING:
-                twist.linear.x = 0.0;
-                twist.angular.z = 0.0;
-                debug_state = "Collecting...";
-                
+                twist.linear.x = 0.0; twist.angular.z = 0.0;
                 if ((now - state_start_time_).seconds() > 2.0) {
                     current_state_ = RobotState::RETURNING;
                     state_start_time_ = now;
@@ -215,17 +225,10 @@ private:
                 }
                 break;
 
-            // ==========================================
-            // 3. 復帰 (バック走行)
-            // ==========================================
             case RobotState::RETURNING:
-                twist.linear.x = BACK_SPEED; 
-                twist.angular.z = 0.0;
-                debug_state = "Returning";
-
+                twist.linear.x = BACK_SPEED; twist.angular.z = 0.0;
                 if (is_any_black) {
-                    twist.linear.x = 0.0; // 停止
-
+                    twist.linear.x = 0.0;
                     if (total_balls >= GOAL_BALL_COUNT) {
                         current_state_ = RobotState::U_TURN;
                         state_start_time_ = now; 
@@ -241,18 +244,10 @@ private:
                 }
                 break;
             
-            // ==========================================
-            // 4. Uターン (180度回転)
-            // ==========================================
             case RobotState::U_TURN:
-                twist.linear.x = 0.0;
-                twist.angular.z = 1.0; 
-                debug_state = "U-Turn";
-
-                // 最初の1.5秒は無条件回転（ラインから外れるため）
+                twist.linear.x = 0.0; twist.angular.z = 1.0; 
                 if ((now - state_start_time_).seconds() > 1.5) {
-                    // その後、中央センサが黒になったら完了
-                    if (is_c) {
+                    if (is_l1 || is_r1) { // 中央付近のセンサで検知したら完了
                         twist.angular.z = 0.0;
                         current_state_ = RobotState::GO_HOME;
                         cross_line_count_ = 0; 
@@ -261,34 +256,30 @@ private:
                 }
                 break;
 
-            // ==========================================
-            // 5. 帰還 (ゴールへ)
-            // ==========================================
             case RobotState::GO_HOME:
                 {
-                    bool detected_cross_line = (is_ll && is_rr);
+                    bool detected_cross_line = (is_l4 && is_r4);
                     if (detected_cross_line && !is_on_cross_line_) {
-                        cross_line_count_++;
-                        is_on_cross_line_ = true;
+                        cross_line_count_++; is_on_cross_line_ = true;
                     } else if (!detected_cross_line) {
                         is_on_cross_line_ = false;
                     }
 
-                    if (is_c) { twist.linear.x = TRACE_SPEED; twist.angular.z = 0.0; }
-                    else if (is_l) { twist.linear.x = TRACE_SPEED*0.5; twist.angular.z = TURN_SPEED_WEAK; }
-                    else if (is_r) { twist.linear.x = TRACE_SPEED*0.5; twist.angular.z = -TURN_SPEED_WEAK; }
+                    // 帰還時のライントレース (8センサ版)
+                    if (is_l4) { twist.linear.x = TRACE_SPEED*0.5; twist.angular.z = TURN_SPEED_STRONG; }
+                    else if (is_l3) { twist.linear.x = TRACE_SPEED*0.5; twist.angular.z = TURN_SPEED_WEAK; }
+                    else if (is_r4) { twist.linear.x = TRACE_SPEED*0.5; twist.angular.z = -TURN_SPEED_STRONG; }
+                    else if (is_r3) { twist.linear.x = TRACE_SPEED*0.5; twist.angular.z = -TURN_SPEED_WEAK; }
+                    else if (is_l2 || is_l1 || is_r1 || is_r2) { twist.linear.x = TRACE_SPEED; twist.angular.z = 0.0; }
                     else { twist.linear.x = 0.0; twist.angular.z = 0.0; } 
 
-                    if (cross_line_count_ > 10) { 
-                         current_state_ = RobotState::FINISHED;
-                    }
+                    if (cross_line_count_ > 10) current_state_ = RobotState::FINISHED;
                 }
                 debug_state = "Going Home";
                 break;
 
             case RobotState::FINISHED:
-                twist.linear.x = 0.0;
-                twist.angular.z = 0.0;
+                twist.linear.x = 0.0; twist.angular.z = 0.0;
                 debug_state = "ALL FINISHED";
                 break;
         }
@@ -302,7 +293,10 @@ private:
     }
 
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sub_ball_;
-    rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr sub_ll_, sub_l_, sub_c_, sub_r_, sub_rr_;
+    // 8つのセンサ
+    rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr sub_l4_, sub_l3_, sub_l2_, sub_l1_;
+    rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr sub_r1_, sub_r2_, sub_r3_, sub_r4_;
+    
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
     rclcpp::TimerBase::SharedPtr timer_;
 
@@ -310,12 +304,14 @@ private:
     rclcpp::Time state_start_time_;
     rclcpp::Time chase_start_time_;
     
-    uint8_t val_ll_ = 255, val_l_ = 255, val_c_ = 255, val_r_ = 255, val_rr_ = 255;
+    // センサ値
+    uint8_t val_l4_=255, val_l3_=255, val_l2_=255, val_l1_=255;
+    uint8_t val_r1_=255, val_r2_=255, val_r3_=255, val_r4_=255;
+
     char ball_command_ = 'N';
     double ball_dist_ = 0.0;
     double ball_center_x_ = 320.0;
     
-    // ★追加: 直前のボール情報を記憶する変数
     double last_known_dist_ = 999.0;
     char last_known_command_ = 'N';
 

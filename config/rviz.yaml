@@ -19,39 +19,59 @@
   gz_type_name: "ignition.msgs.Twist"
   direction: ROS_TO_GZ
 
-# ========== ラインセンサ (追加分) ==========
-- ros_topic_name: "/line/left"
-  gz_topic_name: "/line/left"
+# ========== ラインセンサ (8個構成) ==========
+
+# --- 左側 (外側から内側へ) ---
+- ros_topic_name: "/line/left4"
+  gz_topic_name: "/line/left4"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "/line/center"
-  gz_topic_name: "/line/center"
+- ros_topic_name: "/line/left3"
+  gz_topic_name: "/line/left3"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "/line/right"
-  gz_topic_name: "/line/right"
+- ros_topic_name: "/line/left2"
+  gz_topic_name: "/line/left2"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "/line/left_left"
-  gz_topic_name: "/line/left_left"
+- ros_topic_name: "/line/left1"
+  gz_topic_name: "/line/left1"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "/line/right_right"
-  gz_topic_name: "/line/right_right"
+# --- 右側 (内側から外側へ) ---
+- ros_topic_name: "/line/right1"
+  gz_topic_name: "/line/right1"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/line/right2"
+  gz_topic_name: "/line/right2"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/line/right3"
+  gz_topic_name: "/line/right3"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/line/right4"
+  gz_topic_name: "/line/right4"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
   direction: GZ_TO_ROS  
 
 # ========== TF (位置情報) ==========
-# これもここに書けば、Launchファイルの tf_bridge は不要になります
 - ros_topic_name: "/world/irc_world/pose/info"
   gz_topic_name: "/world/irc_world/pose/info"
   ros_type_name: "tf2_msgs/msg/TFMessage"

@@ -18,7 +18,20 @@
   ros_type_name: "geometry_msgs/msg/Twist"
   gz_type_name: "ignition.msgs.Twist"
   direction: ROS_TO_GZ
+# ========== オドメトリ ==========
+# Gazeboが計算した位置と速度を ROS 2 の /odom に流す
+- ros_topic_name: "/odom"
+  gz_topic_name: "/odometry"
+  ros_type_name: "nav_msgs/msg/Odometry"
+  gz_type_name: "ignition.msgs.Odometry"
+  direction: GZ_TO_ROS
 
+# ========== TF (位置情報) ==========
+- ros_topic_name: "/world/irc_world/pose/info"
+  gz_topic_name: "/world/irc_world/pose/info"
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "ignition.msgs.Pose_V"
+  direction: GZ_TO_ROS
 # ========== ラインセンサ (8個構成) ==========
 
 # --- 左側 (外側から内側へ) ---
@@ -71,9 +84,3 @@
   gz_type_name: "ignition.msgs.Image"
   direction: GZ_TO_ROS  
 
-# ========== TF (位置情報) ==========
-- ros_topic_name: "/world/irc_world/pose/info"
-  gz_topic_name: "/world/irc_world/pose/info"
-  ros_type_name: "tf2_msgs/msg/TFMessage"
-  gz_type_name: "ignition.msgs.Pose_V"
-  direction: GZ_TO_ROS

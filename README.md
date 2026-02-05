@@ -64,6 +64,8 @@ Gazebo上の挙動だけでなく、ロボットが自己位置をどう認識�
 - **赤矢印:** ロボットの推定位置と姿勢（/odom）
 - Gazebo（右）とRViz2（左）を連携させ、リアルタイムに座標変換(TF)が正しく行われていることを確認しています。
 <img width="2114" height="1152" alt="Image" src="https://github.com/user-attachments/assets/0bd5fe66-6eac-4d7f-b81f-20890884616d" />
+
+## 動作環境
 - Python 3.10,  C++
 - Ubuntu 22.04 LTS
 - ROS2 humble

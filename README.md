@@ -49,7 +49,21 @@ $ ros2 run irc_simulation ball_chaser
 ```
 $ ign topic -e -t /keyboard/keypress
 ```
-# 動作環境
+## 解析・検証環境
+本シミュレーションでは、制御ロジックの妥当性を確認するために、MATLABおよびRViz2を用いた解析を行っています。
+
+### 1. MATLABによる速度追従性の解析
+ROS 2の通信データ（rosbag）をMATLABで解析し、PID制御の調整やノイズの影響を確認しています。
+- **青線 (/cmd_vel):** プログラムが出力した目標速度
+- **赤線 (/odom):** シミュレータ上のロボットの実測速度（意図的にノイズを付加し、実機に近い挙動を再現）
+
+<img width="833" height="733" alt="Image" src="https://github.com/user-attachments/assets/f9155d36-a57e-4af6-a263-a612649f227d" />
+
+### 2. RViz2によるオドメトリの可視化
+Gazebo上の挙動だけでなく、ロボットが自己位置をどう認識しているか（オドメトリ）をRViz2上で可視化しています。
+- **赤矢印:** ロボットの推定位置と姿勢（/odom）
+- Gazebo（右）とRViz2（左）を連携させ、リアルタイムに座標変換(TF)が正しく行われていることを確認しています。
+<img width="2114" height="1152" alt="Image" src="https://github.com/user-attachments/assets/0bd5fe66-6eac-4d7f-b81f-20890884616d" />
 - Python 3.10,  C++
 - Ubuntu 22.04 LTS
 - ROS2 humble

@@ -27,8 +27,8 @@
   direction: GZ_TO_ROS
 
 # ========== TF (位置情報) ==========
-- ros_topic_name: "/world/irc_world/pose/info"
-  gz_topic_name: "/world/irc_world/pose/info"
+- ros_topic_name: "/tf"
+  gz_topic_name: "/model/my_robot/tf"
   ros_type_name: "tf2_msgs/msg/TFMessage"
   gz_type_name: "ignition.msgs.Pose_V"
   direction: GZ_TO_ROS
